@@ -204,7 +204,7 @@ btnClose.addEventListener('click', function(e) {
     //Hide UI
     containerApp.style.opacity = 0;
 
-    
+
   }
 })
 
@@ -218,8 +218,15 @@ const account = accounts.find(acc => acc.owner === 'Jessica Davis');
 console.log(account);
 
 
+// Includes, some and every method
 
+//Checks for Equality
+console.log(movements)
+console.log(movements.includes(-130))
 
+//Checks for Condition
+const anyDeposits = movements.some(mov => mov > 1500);
+console.log(anyDeposits)
 
 // LECTURES
 
