@@ -188,6 +188,25 @@ inputTransferAmount.value = inputTransferTo.value = ''
 
 });
 
+// Close Button
+btnClose.addEventListener('click', function(e) {
+  e.preventDefault();
+
+  const closeUserName = accounts.find(acc => acc.username === inputCloseUsername.value);
+  const closePin = accounts.find(acc => acc.pin === Number(inputClosePin.value));
+
+  if (closeUserName && closePin) {
+
+    const index = accounts.findIndex(acc => acc.username === currentAccount.username)
+    // Delete Account
+    accounts.splice(index, 1)
+
+    //Hide UI
+    containerApp.style.opacity = 0;
+
+    
+  }
+})
 
 // LECTURES
 
