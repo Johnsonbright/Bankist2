@@ -188,6 +188,25 @@ inputTransferAmount.value = inputTransferTo.value = ''
 
 });
 
+// Loan button 
+btnLoan.addEventListener('click',function(e) {
+e.preventDefault();
+
+const amount = Number(inputLoanAmount.value);
+
+if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+// Add Movement
+currentAccount.movements.push(amount);
+
+  // Update UI
+  updateUI(currentAccount);
+
+  // empty input
+  inputLoanAmount.value = '';
+}
+
+})
+
 // Close Button
 btnClose.addEventListener('click', function(e) {
   e.preventDefault();
@@ -220,14 +239,23 @@ console.log(account);
 
 // Includes, some and every method
 
-//Checks for Equality
+//INCLUDES: Checks for Equality
 console.log(movements)
 console.log(movements.includes(-130))
 
-//Checks for Condition
+//SOME: Checks for Condition
 const anyDeposits = movements.some(mov => mov > 1500);
 console.log(anyDeposits)
 
+// EVERY
+console.log(movements.every(mov => mov > 0));
+
+
+// Set up callback DRY PRINCIPLE
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit))
+console.log(movements.every(deposit))
+console.log(movements.filter(deposit))
 // LECTURES
 
 
