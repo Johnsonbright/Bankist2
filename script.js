@@ -232,30 +232,21 @@ btnClose.addEventListener('click', function(e) {
 const movements = [200,450,-400,3000,-650,-130,70,1300];
 const eurToUsd = 1.1;
 
-//Find Method
-const account = accounts.find(acc => acc.owner === 'Jessica Davis');
-console.log(account);
+const arr = [[1,2,3], [4,5,6], 7, 8];
+console.log(arr.flat());
 
+const arrDeep = [[[1,2,3],4,[5,6,7], [8,9,10,[11,12,[13,14],15]]]];
 
-// Includes, some and every method
+console.log(arrDeep.flat(4));
 
-//INCLUDES: Checks for Equality
-console.log(movements)
-console.log(movements.includes(-130))
+// Flat
+const allAccountMovements = accounts.map(acc => acc.movements).flat().reduce((acc,cur)=> acc + cur, 0);
+console.log(allAccountMovements);
 
-//SOME: Checks for Condition
-const anyDeposits = movements.some(mov => mov > 1500);
-console.log(anyDeposits)
+//Flatmap (can only go one level deep)
 
-// EVERY
-console.log(movements.every(mov => mov > 0));
-
-
-// Set up callback DRY PRINCIPLE
-const deposit = mov => mov > 0;
-console.log(movements.some(deposit))
-console.log(movements.every(deposit))
-console.log(movements.filter(deposit))
+const allAccountMovementsflat = accounts.flatMap(acc => acc.movements).reduce((acc,cur)=> acc + cur, 0);
+console.log(allAccountMovementsflat);
 // LECTURES
 
 
