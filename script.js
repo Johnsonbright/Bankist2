@@ -79,10 +79,12 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 
-const displayMovements = function(movements) {
+const displayMovements = function(movements, sort = false) {
   containerMovements.innerHTML = '';
+// Sorting
+  const sortmovs = sort ? movements.slice().sort((a,b) => a - b) : movements;
   
-movements.forEach(function (mov, i){
+  sortmovs.forEach(function (mov, i){
   const type = (mov > 0) ? 'deposit' : 'withdrawal';
  const html = 
         ` <div class="movements__row">
@@ -225,28 +227,45 @@ btnClose.addEventListener('click', function(e) {
 
 
   }
-})
+});
+
+let sorted = false;
+btnSort.addEventListener('click', function(e) {
+  e.preventDefault();
+ 
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
 
 // LECTURES
 
 const movements = [200,450,-400,3000,-650,-130,70,1300];
 const eurToUsd = 1.1;
 
-const arr = [[1,2,3], [4,5,6], 7, 8];
-console.log(arr.flat());
+// Strings
+const owners = ['jonas', 'ade', 'martha', 'adam'];
+console.log(owners.sort());
 
-const arrDeep = [[[1,2,3],4,[5,6,7], [8,9,10,[11,12,[13,14],15]]]];
+//Numbers
+console.log(movements);
 
-console.log(arrDeep.flat(4));
+// return < 0 A,B (keep order)
+// return > 0 B,A (switch order)
+movements.sort((a,b) => 
+  //Ascendiing
+a-b);
+console.log(movements)
 
-// Flat
-const allAccountMovements = accounts.map(acc => acc.movements).flat().reduce((acc,cur)=> acc + cur, 0);
-console.log(allAccountMovements);
+movements.sort((a,b) => {
+  //Descendiing
+  if (a > b ) return -1;
+  if ( a < b ) return 1;
+})
+console.log(movements)
 
-//Flatmap (can only go one level deep)
 
-const allAccountMovementsflat = accounts.flatMap(acc => acc.movements).reduce((acc,cur)=> acc + cur, 0);
-console.log(allAccountMovementsflat);
+
+
 // LECTURES
 
 
