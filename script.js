@@ -242,26 +242,32 @@ btnSort.addEventListener('click', function(e) {
 const movements = [200,450,-400,3000,-650,-130,70,1300];
 const eurToUsd = 1.1;
 
-// Strings
-const owners = ['jonas', 'ade', 'martha', 'adam'];
-console.log(owners.sort());
+// Empty arrays * Fill Method
+const arr = [1,2,3,4,5,6,7];
+console.log(new Array(2,4,6,8,10,12,14))
+arr.fill(23,3,5);
+console.log(arr);
 
-//Numbers
-console.log(movements);
 
-// return < 0 A,B (keep order)
-// return > 0 B,A (switch order)
-movements.sort((a,b) => 
-  //Ascendiing
-a-b);
-console.log(movements)
+const x = new Array(8);
+console.log(x);
+x.fill(1,1,5);
+console.log(x);
 
-movements.sort((a,b) => {
-  //Descendiing
-  if (a > b ) return -1;
-  if ( a < b ) return 1;
-})
-console.log(movements)
+//Array.from
+// const y = Array.from({length:10}, ()=> 2);
+// console.log(y);
+
+// const z = Array.from({length: 5}, (_,i) => i + 1);
+// console.log(z)
+
+// const random  = Array.from({length:2}, (curr,_) =>  Math.random(curr) * 100 );
+// console.log(random);
+
+labelBalance.addEventListener('click', function(e) {const movementUI = Array.from( document.querySelectorAll('.movements__value'),el => Number(el.textContent.replace(`€`, '') )
+);
+console.log(movementUI);
+});
 
 
 
