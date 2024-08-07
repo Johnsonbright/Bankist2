@@ -242,6 +242,8 @@ btnSort.addEventListener('click', function(e) {
 const movements = [200,450,-400,3000,-650,-130,70,1300];
 const eurToUsd = 1.1;
 
+
+
 // Empty arrays * Fill Method
 const arr = [1,2,3,4,5,6,7];
 console.log(new Array(2,4,6,8,10,12,14))
@@ -269,8 +271,37 @@ labelBalance.addEventListener('click', function(e) {const movementUI = Array.fro
 console.log(movementUI);
 });
 
+// looking for a deposit that is greater than or equal to 1000
+const numDeposits = accounts.flatMap(acc => acc.movements )
+.reduce((count,cur) => (cur >= 1000 ? count + 1 : count ), 0);
+console.log(numDeposits);
 
+//Prefixed ++ operator
+let a = 10;
+console.log(++a);
+console.log(a);
 
+// EXAMPLE
+const {deposit, withdrawal} = accounts.flatMap(acc=> acc.movements ).reduce((summary, mov)=> {
+  // mov > 0 ? summary.deposit += mov : summary.withdrawal += mov;
+  summary[mov > 0 ? 'deposit' : 'withdrawal'] += mov
+  return summary;
+}, {deposit: 0, withdrawal: 0});
+
+console.log(deposit, withdrawal);
+
+//  EXAMPLE
+const convertTitleCase = function(title) {
+const capitalize = str => str[0].toUpperCase() + str.slice(1)
+
+  const exemptions = ['a', 'an', 'the', 'but', 'or', 'on', 'in', 'with', 'and'];
+
+  const titleCase = title.toLowerCase().split(' ').map(word => exemptions.includes(word) ? word : capitalize(word)).join(' ')  ;
+  return capitalize(titleCase)
+};
+console.log(convertTitleCase('this is a nice title'))
+console.log(convertTitleCase('this is a LONG title'))
+console.log(convertTitleCase('and here is another title with an EXAMPLE'))
 
 // LECTURES
 
