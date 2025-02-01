@@ -151,7 +151,7 @@ currentAccount= accounts.find(acc => acc.username === inputLoginUsername.value);
 if (currentAccount?.pin === Number(inputLoginPin.value )) {
  
  // welcome message
- labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`;
+ labelWelcome.textContent = `Welcome back 😀, ${currentAccount.owner.split(' ')[0]}`;
   // Opacity = 100 for visibility
   containerApp.style.opacity = 100;
   // empty  log-in info 
