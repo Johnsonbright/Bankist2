@@ -32,7 +32,7 @@ const account1 = {
 
 const account2 = {
   owner: 'Jessica Davis',
-  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30, 200],
   interestRate: 1.5,
   pin: 2222,
 
@@ -45,6 +45,7 @@ const account2 = {
     '2020-04-10T14:43:26.374Z',
     '2020-06-25T18:49:59.371Z',
     '2020-07-26T12:01:20.894Z',
+    '2020-17-26T12:01:20.894Z',
   ],
   currency: 'USD',
   locale: 'en-US',
