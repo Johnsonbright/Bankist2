@@ -10,8 +10,8 @@
 // DIFFERENT DATA! Contains movement dates, currency and locale
 
 const account1 = {
-  owner: 'Victor Eke',
-  movements: [200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300],
+  owner: 'Victor Ekenna',
+  movements: [200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300, 450],
   interestRate: 1.2, // %
   pin: 1111,
 
@@ -24,6 +24,7 @@ const account1 = {
     '2020-05-27T17:01:17.194Z',
     '2020-07-11T23:36:17.929Z',
     '2020-07-12T10:51:36.790Z',
+    '2020-08-12T10:51:36.790Z',
   ],
   currency: 'EUR',
   locale: 'pt-PT', // de-DE
@@ -31,7 +32,7 @@ const account1 = {
 
 const account2 = {
   owner: 'Jessica Davis',
-  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30, 200],
   interestRate: 1.5,
   pin: 2222,
 
@@ -44,6 +45,7 @@ const account2 = {
     '2020-04-10T14:43:26.374Z',
     '2020-06-25T18:49:59.371Z',
     '2020-07-26T12:01:20.894Z',
+    '2020-17-26T12:01:20.894Z',
   ],
   currency: 'USD',
   locale: 'en-US',
@@ -74,7 +76,7 @@ const inputLoginUsername = document.querySelector('.login__input--user');
 const inputLoginPin = document.querySelector('.login__input--pin');
 const inputTransferTo = document.querySelector('.form__input--to');
 const inputTransferAmount = document.querySelector('.form__input--amount');
-const inputLoanAmount = document.querySelector('.form__input--loan-amount');
+const inputLoanAmount = document.querySelector('.form__input--loan-amounts');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
@@ -151,7 +153,7 @@ currentAccount= accounts.find(acc => acc.username === inputLoginUsername.value);
 if (currentAccount?.pin === Number(inputLoginPin.value )) {
  
  // welcome message
- labelWelcome.textContent = `Welcome back, ${currentAccount.owner.split(' ')[0]}`;
+ labelWelcome.textContent = `Welcome back 😀, ${currentAccount.owner.split(' ')[0]}`;
   // Opacity = 100 for visibility
   containerApp.style.opacity = 100;
   // empty  log-in info 
@@ -192,7 +194,7 @@ inputTransferAmount.value = inputTransferTo.value = ''
 // LECTURES
 
 const movements = [200,450,-400,3000,-650,-130,70,1300];
-const eurToUsd = 1.1;
+const eurToUsd = 10.1;
 
 //Find Method
 const account = accounts.find(acc => acc.owner === 'Jessica Davis');
